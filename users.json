@@ -32,5 +32,33 @@
         "email": "cabarde@gmail.com",
         "password": "123456",
         "timestamp": "2025-09-24 13:59:02"
+    },
+    {
+        "fullname": "Joanne",
+        "email": "cabardejoanne@gmail.com",
+        "username": "Joanne",
+        "password": "$2y$10$h02NAxeckHqPGsvfJIiQJuRTFct3daaLFFWcCLci6zzyYqX8OQWc.",
+        "gender": "Female",
+        "hobbies": [
+            "Dancing",
+            "Singing"
+        ],
+        "country": "Philippines",
+        "timestamp": "2025-09-24 14:52:52"
+    },
+    {
+        "email": "cabardejoanne@gmail.com",
+        "password": "123456",
+        "timestamp": "2025-09-24 14:53:00"
+    },
+    {
+        "email": "joanne@",
+        "password": "1245",
+        "timestamp": "2025-09-24 14:54:30"
+    },
+    {
+        "email": "joanne@gmail.com",
+        "password": "12345",
+        "timestamp": "2025-09-24 15:04:36"
     }
 ]

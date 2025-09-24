@@ -1,20 +1,30 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Collect form data
     $fullname = htmlspecialchars($_POST['fullname']);
     $email = htmlspecialchars($_POST['email']);
     $username = htmlspecialchars($_POST['username']);
-    $password = htmlspecialchars($_POST['password']);
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password']; 
     $gender = isset($_POST['gender']) ? $_POST['gender'] : '';
     $hobbies = isset($_POST['hobbies']) ? $_POST['hobbies'] : [];
     $country = htmlspecialchars($_POST['country']);
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        die("<p style='color:red;'>Invalid email format. <a href='registration.php'>Go back</a></p>");
+    }
+
+    if ($password !== $confirm_password) {
+        die("<p style='color:red;'>Passwords do not match. <a href='registration.php'>Go back</a></p>");
+    }
+
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     $dataFile = "users.json";
     $newUser = [
         "fullname" => $fullname,
         "email" => $email,
         "username" => $username,
-        "password" => password_hash($password, PASSWORD_DEFAULT), // secure hash
+        "password" => $hashedPassword,
         "gender" => $gender,
         "hobbies" => $hobbies,
         "country" => $country,
@@ -31,7 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $arr[] = $newUser;
     file_put_contents($dataFile, json_encode($arr, JSON_PRETTY_PRINT));
 
-    // Redirect to login page
     header("Location: login.php");
     exit();
 }
@@ -50,23 +59,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="form login">
             <header>Register</header>
             <form action="registration.php" method="post">
-                <label for="Fullname">Full Name </label>
+                <label>Full Name </label>
                 <input type="text" name="fullname" placeholder="Enter Full Name" required/>
-                <label for="Fullname">Email </label>
+
+                <label>Email </label>
                 <input type="email" name="email" placeholder="Enter Email Address" required/>
-                <label for="Fullname">Username </label>
+
+                <label>Username </label>
                 <input type="text" name="username" placeholder="Enter Username" required/>
-                <label for="Fullname">Password </label>
+
+                <label>Password </label>
                 <input type="password" name="password" placeholder="Enter Password" required/>
 
+                <label>Confirm Password </label>
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required/>
+
                 <div>
-                <label for="Fullname">Gender: </label>
+                    <label>Gender: </label>
                     <label><input type="radio" name="gender" value="Male" required> Male</label>
                     <label><input type="radio" name="gender" value="Female"> Female</label>
                 </div>
 
                 <div>
-                <label for="Fullname">Hobbies: </label>
+                    <label>Hobbies: </label>
                     <label><input type="checkbox" name="hobbies[]" value="Dancing"> Dancing</label>
                     <label><input type="checkbox" name="hobbies[]" value="Singing"> Singing</label>
                 </div>

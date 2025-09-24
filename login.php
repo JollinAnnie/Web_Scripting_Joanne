@@ -1,10 +1,12 @@
 <?php
-// login.php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $email = $_POST["email"];
+    $email = trim($_POST["email"]);
     $password = $_POST["password"];
 
-    // Save login attempt to users.json
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        die("<p style='color:red;'>Invalid email format. Please go back and try again.</p>");
+    }
+
     $dataFile = "users.json";
     $newData = [
         "email" => $email,
@@ -22,12 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $arr[] = $newData;
     file_put_contents($dataFile, json_encode($arr, JSON_PRETTY_PRINT));
 
-    // Redirect after saving
+
     header("Location: dashboard.php");
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class="form login">
       <header id="loginHeader">Login</header>
       <form method="POST" action="login.php">
-        <input type="text" name="email" placeholder="Enter Email Address" required/>
+        <input type="email" name="email" placeholder="Enter Email Address" required/>
         <input type="password" name="password" placeholder="Enter Password" required/>
         <a href="#">Forgot Password?</a>
         <a href="registration.php">Register</a>
