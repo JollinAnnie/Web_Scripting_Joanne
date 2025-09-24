@@ -1,0 +1,137 @@
+:root {
+  --cadet-gray: #93a3b1ff;
+  --battleship-gray: #7c898bff;
+  --dim-gray: #636564ff;
+  --taupe: #4c443cff;
+  --bistre: #322214ff;
+
+  --font-small: 14px;
+  --font-base: 16px;
+  --font-medium: 18px;
+  --font-large: 22px;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 600;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--cadet-gray), var(--battleship-gray));
+  font-size: var(--font-base);
+  font-weight: var(--weight-regular);
+  line-height: 1.5;
+}
+
+
+.wrapper {
+  background: #fff;
+  padding: 2rem;
+  width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease;
+}
+
+.wrapper.active {
+  transform: scale(1.05);
+}
+
+
+.form header {
+  font-size: var(--font-large);
+  font-weight: var(--weight-bold);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--taupe);
+}
+
+
+.form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-size: var(--font-small);
+  font-weight: var(--weight-medium);
+  color: var(--bistre);
+}
+
+
+.form input[type="text"],
+.form input[type="password"],
+.form input[type="email"],
+.form select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid var(--dim-gray);
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+  font-size: var(--font-base);
+}
+
+.form input:focus,
+.form select:focus {
+  border-color: var(--battleship-gray);
+  box-shadow: 0 0 6px var(--cadet-gray);
+}
+
+
+.form div label {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 15px;
+  font-size: var(--font-small);
+  cursor: pointer;
+}
+
+.form input[type="radio"],
+.form input[type="checkbox"] {
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+
+.form a {
+  font-size: var(--font-small);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+  color: var(--battleship-gray);
+  margin: 10px 0;
+  display: inline-block;
+  transition: color 0.3s;
+}
+
+.form a:hover {
+  color: var(--taupe);
+  text-decoration: underline;
+}
+
+
+.form input[type="submit"] {
+  width: 100%;
+  background: var(--battleship-gray);
+  color: white;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: var(--font-medium);
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.form input[type="submit"]:hover {
+  background: var(--taupe);
+}

@@ -1,0 +1,36 @@
+[
+    {
+        "fullname": "Joanne Faith Cabarde",
+        "email": "cabarde@gmail.com",
+        "username": "Joaanniee",
+        "password": "$2y$10$bZjFYSV7EYeb46Ae900dZepx9dyVWwIvcee1nf\/UEKbMijM9IR4ou",
+        "gender": "Female",
+        "hobbies": [
+            "Singing"
+        ],
+        "country": "Philippines",
+        "timestamp": "2025-09-24 13:56:44"
+    },
+    {
+        "fullname": "Joanne Faith Cabarde",
+        "email": "cabarde@gmail.com",
+        "username": "Joaanniee",
+        "password": "$2y$10$A7vX7awINqnpFLQlCRMmZO7qVNrstCx1wvHUdav5oGMofHRaL4GCK",
+        "gender": "Female",
+        "hobbies": [
+            "Dancing"
+        ],
+        "country": "Philippines",
+        "timestamp": "2025-09-24 13:56:53"
+    },
+    {
+        "email": "cabarde@gmail.com",
+        "password": "123456",
+        "timestamp": "2025-09-24 13:57:00"
+    },
+    {
+        "email": "cabarde@gmail.com",
+        "password": "123456",
+        "timestamp": "2025-09-24 13:59:02"
+    }
+]
